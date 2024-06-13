@@ -13,3 +13,28 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.scroll-indicator {
+    position: fixed;
+    bottom: 20px;
+    left: 49%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    border-left: 2px solid #30273b;
+    border-bottom: 2px solid #30273b;
+    transform: rotate(-45deg) translateX(-50%);
+    animation: bounce 2s infinite;
+}
+  
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: rotate(-45deg) translateY(0);
+    }
+    40% {
+      transform: rotate(-45deg) translateX(-8px) translateY(10px);
+    }
+    60% {
+      transform: rotate(-45deg) translateX(-5px) translateY(5px);
+    }
+}
