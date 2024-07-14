@@ -1,10 +1,11 @@
-import { Box, Text, VStack, Image, HStack, useColorModeValue } from "@chakra-ui/react";
+import { Box, Text, VStack, Image, HStack, useColorModeValue, useBreakpointValue } from "@chakra-ui/react";
 import theme from "../TextStyles";
 import foto from "../assets/yo.webp";
 import "./NameCard.css";
+import { useState } from "react";
 
 const NameCard = () => {
-    const defaultColor = useColorModeValue("purple.900", "purple.200");
+    const defaultColor = useColorModeValue("#0f1321", "purple.200");
     const lightColor = useColorModeValue("#0f1321", "purple.100");
     const darkerColor = useColorModeValue("#1d2336", "purple.300");
 

@@ -1,7 +1,9 @@
-import { Box, Center, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import { Box, Image, Center, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import NameCard from "./components/NameCard";
 import SwitchTheme from "./components/SwitchTheme";
 import { useEffect, useState } from "react";
+import foto from "./assets/yo.webp";
+import foto2 from "./assets/blank-profile-picture-973460_960_720.webp";
 
 function App() {
     const [showArrow, setShowArrow] = useState(false);
@@ -26,6 +28,13 @@ function App() {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
+    const images = [
+        "https://ddragon.leagueoflegends.com/cdn/img/champion/centered/Shen_0.jpg",
+        "https://ddragon.leagueoflegends.com/cdn/img/champion/centered/Shen_1.jpg",
+        "https://ddragon.leagueoflegends.com/cdn/img/champion/centered/Shen_2.jpg",
+        "https://ddragon.leagueoflegends.com/cdn/img/champion/centered/Shen_3.jpg"
+    ]
     
     return (
         <>
@@ -40,7 +49,7 @@ function App() {
             <Text> Mis Proyectos </Text>
         </Center>
         <Center>
-            <NameCard />
+            <Text>projects</Text>
         </Center>
         
         {showArrow && (
