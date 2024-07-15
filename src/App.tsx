@@ -5,6 +5,7 @@ import bgLight from './images/bgLight.webp'
 import bgDark from './images/bgDark.webp'
 import cavernBGLight from './images/cavernLight.webp'
 import cavernBGDark from './images/cavern.webp'
+import NavBar from './components/NavBar';
 
 const App = () => {
     const { colorMode } = useColorMode();
@@ -18,6 +19,8 @@ const App = () => {
     cavernBGDark;
 
     return (
+        <>
+        <NavBar />
         <Box
             w="100%"
             h="350vh"
@@ -35,6 +38,7 @@ const App = () => {
                 <HomePage />
             </Box>
         </Box>
+        </>
     );
 }
 

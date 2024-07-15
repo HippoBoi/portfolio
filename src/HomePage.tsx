@@ -69,7 +69,7 @@ function HomePage() {
                             1.5px 1.5px 0 ${textShadow}
                         `,
                     }}> 
-                    Mis Proyectos 
+                    Recent Projects 
                 </Text>
             </Center>
             <Center>
