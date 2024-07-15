@@ -9,7 +9,7 @@ const theme = extendTheme({
             letterSpacing: '-2%',
         },
         subtext: {
-            fontSize: "35px",
+            fontSize: "40px",
             fontWeight: 'bold',
             letterSpacing: '-2%',
         }

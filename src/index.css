@@ -21,8 +21,8 @@ body {
     transform: translateX(-50%);
     width: 30px;
     height: 30px;
-    border-left: 2px solid #30273b;
-    border-bottom: 2px solid #30273b;
+    border-left: 2px solid #635969;
+    border-bottom: 2px solid #635969;
     transform: rotate(-45deg) translateX(-50%);
     animation: bounce 2s infinite;
 }

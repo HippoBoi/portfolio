@@ -10,14 +10,14 @@ const NameCard = () => {
     const darkerColor = useColorModeValue("#1d2336", "purple.300");
 
     return (
-        <Box marginTop={"30vh"} marginLeft={"25vw"}>
+        <Box marginLeft={"24vw"}>
             <HStack spacing={"120px"}>
                 <VStack>
                     <Text 
                         fontSize={"15px"} as={"i"} 
                         opacity={"60%"} color={defaultColor}
                         textShadow={"0px 2px 4px rgba(0, 0, 0, 0.4)"}>
-                        Desarrollando soluciones.
+                        Hello, I'm
                     </Text>
                     <Text 
                         style={theme.textStyles.important} color={lightColor}
