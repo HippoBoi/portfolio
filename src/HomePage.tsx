@@ -4,6 +4,7 @@ import SwitchTheme from "./components/SwitchTheme";
 import { useEffect, useState } from "react";
 import ProjectsList, { ProjectTemplate } from "./components/ProjectsList";
 import TopBG from "./components/TopBG";
+import Studies from "./components/Studies";
 
 function HomePage() {
     const [showArrow, setShowArrow] = useState(false);
@@ -72,9 +73,11 @@ function HomePage() {
                     Recent Projects 
                 </Text>
             </Center>
-            <Center>
+            <Center marginBottom={"200px"}>
                 <ProjectsList projects={projects} />
             </Center>
+
+            <Studies />
             
             {showArrow && (
                 <div className="scroll-indicator"></div>

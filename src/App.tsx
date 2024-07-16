@@ -23,7 +23,7 @@ const App = () => {
         <NavBar />
         <Box
             w="100%"
-            h="350vh"
+            h="400vh"
             bgImage={bgImage}
             bgRepeat={'repeat'}
             bgSize="auto"

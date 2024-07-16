@@ -6,9 +6,19 @@ const config: ThemeConfig = {
     useSystemColorMode: false
 };
 
-const colorTheme = extendTheme({ config, fonts: {
-    heading: `'raleway', sans-serif`,
-    body: `'raleway', sans-serif`,
-}, });
+const colorTheme = extendTheme({ config, 
+    fonts: {
+        heading: `'raleway', sans-serif`,
+        body: `'raleway', sans-serif`,
+    }, 
+
+    styles: {
+        global: {
+            "html, body": {
+                overflowX: "hidden",
+            },
+        },
+    },
+});
 
 export default colorTheme;
