@@ -17,10 +17,6 @@ const NavBar = () => {
         }
     }, [scrollDir])
 
-    if (!visible) {
-        return null;
-    }
-
     return (
         <Flex
             as="nav"
@@ -33,7 +29,9 @@ const NavBar = () => {
             boxShadow="lg"
             padding="20px"
             rounded={"20px"}
-            opacity={"65%"}
+            opacity={visible ? "65%" : "0"}
+            transform={visible ? "translateY(0)" : "translateY(-100%)"}
+            transition="transform 0.3s ease-in-out, opacity 0.3s ease-in-out"
             _hover={{ "opacity": "100%" }}
             zIndex="1000">
 
