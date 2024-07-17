@@ -1,5 +1,8 @@
 import { Box, Heading, Image, Text, HStack, Button, useColorMode, VStack } from '@chakra-ui/react';
 import { useState } from 'react';
+import "./ProjectsList.css";
+import SliderBox from './Slider/SliderBox';
+import SliderButton from './Slider/SliderButton';
 
 export interface ProjectTemplate {
     name: string;
@@ -13,25 +16,41 @@ interface Props {
 
 const ProjectsList = ({ projects }: Props) => {
     const [index, setIndex] = useState(1);
+    const [slideDirection, setSlideDirection] = useState("");
+    const [disableButton, setDisableButton] = useState(false);
     const { colorMode } = useColorMode();
 
+    const animDuration = 620;
+
     const changeIndex = (action: 'add' | 'sub') => {
+        if (disableButton) return;
+
+        setDisableButton(true);
+
+        setTimeout(() => {
+            setDisableButton(false);
+        }, animDuration);
+
         if (action === 'add') {
+            setSlideDirection("right");
+
             let indexValue = index + 1;
 
             if (index + 1 > projects.length - 1) {
                 indexValue = 0;
             }
-            console.log('indexvalue: ' + indexValue);
+
             setIndex(indexValue);
         }
         else {
+            setSlideDirection("left");
+
             let indexValue = index - 1;
 
             if (index - 1 < 0) {
                 indexValue = projects.length - 1;
             }
-            console.log('indexvalue: ' + indexValue);
+
             setIndex(indexValue);
         }
     }
@@ -53,36 +72,9 @@ const ProjectsList = ({ projects }: Props) => {
     return (
         <HStack justifyContent={'space-between'}>
             {/* left box */}
-            <Box 
-                key={"asdf"}
-                opacity={"60%"}
-                marginX={"5px"}
-                borderWidth="1px" 
-                borderRadius="lg" 
-                bgColor={colorMode === "light" ? "gray.300" : "gray.800"}
-                width={"23vw"} 
-                height={"100%"}>
-                <Image src={getPrevious().image} alt={getPrevious().name} width={'100%'} height={'100%'} />
-                <Box p={6}>
-                    <Heading fontSize="xl">...</Heading>
-                </Box>
-            </Box>
+            <SliderBox slideDirection={slideDirection} project={getPrevious()} orientation='left' />
 
-            <Button 
-                overflow={"hidden"}
-                _hover={{ 
-                    "transform": "scale(1.25)", 
-                    "color": `${colorMode === "light" ? "blue.600" : "purple.900"}`,
-                    "bgColor": `${colorMode === "light" ? "gray.300" : "purple.200"}`,
-                    "transition": "0.5s ease-out"
-                }} 
-                _active={{ 
-                    "transform": "scale(0.95)",
-                }}
-                fontSize={"30px"} 
-                onClick={() => changeIndex('sub')}>
-                {'<'}
-            </Button>
+            <SliderButton action='sub' onClick={(action: "add" | "sub") => changeIndex(action)} disabled={disableButton} />
 
             {/* middle selected box */}
             <Box 
@@ -90,11 +82,14 @@ const ProjectsList = ({ projects }: Props) => {
                 borderWidth="1px" 
                 borderRadius="lg" 
                 bgColor={colorMode === "light" ? "gray.300" : "gray.800"}
+                className={slideDirection}
+                onAnimationEnd={() => setSlideDirection("")}
                 width={"44vw"} 
                 height={"100%"}
                 marginX={"5px"}
+                zIndex={2}
                 _hover={{ 
-                    "transform": "scale(1.05)",
+                    "transform": `${disableButton ? "scale(1.0)" : "scale(1.05)"}`,
                     "transition": "transform 0.5s ease-out",
                     "cursor": "pointer"
                 }}
@@ -108,37 +103,10 @@ const ProjectsList = ({ projects }: Props) => {
                 </Box>
             </Box>
 
-            <Button 
-                overflow={"hidden"}
-                _hover={{ 
-                    "transform": "scale(1.25)", 
-                    "color": `${colorMode === "light" ? "blue.600" : "purple.900"}`,
-                    "bgColor": `${colorMode === "light" ? "gray.300" : "purple.200"}`,
-                    "transition": "0.5s ease-out"
-                }} 
-                _active={{ 
-                    "transform": "scale(0.95)",
-                }}
-                fontSize={"30px"} 
-                onClick={() => changeIndex('add')}>
-                {'>'}
-            </Button>
+            <SliderButton action='add' onClick={(action: "add" | "sub") => changeIndex(action)} disabled={disableButton} />
 
             {/* right box */}
-            <Box 
-                key={"fdsa"} 
-                opacity={"60%"}
-                marginX={"5px"}
-                bgColor={colorMode === "light" ? "gray.300" : "gray.800"}
-                borderWidth="1px" 
-                borderRadius="lg" 
-                width={"23vw"} 
-                height={"100%"}>
-                <Image src={getNext().image} alt={getNext().name} width={'100%'} height={'100%'} />
-                <Box p={6}>
-                    <Heading fontSize="xl">...</Heading>
-                </Box>
-            </Box>
+            <SliderBox slideDirection={slideDirection} project={getNext()} orientation='right' />
         </HStack>
     );
 }

@@ -1,0 +1,103 @@
+@keyframes slideFromLeft {
+    from {
+        transform: translateX(90%) scale(0.6);
+    }
+    to {
+        transform: translateX(0) scale(1.0);
+    }
+}
+
+@keyframes slideFromRight {
+    from {
+        transform: translateX(-90%) scale(0.6);
+    }
+    to {
+        transform: translateX(0) scale(1.0);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translate(170%) scale(1.8);
+    }
+    to {
+        transform: translate(0%) scale(1.0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        transform: translate(-170%) scale(1.8);
+    }
+    to {
+        transform: translate(0%) scale(1.0);
+    }
+}
+
+@keyframes hideLeft {
+    from {
+        transform: translate(-340%);
+    }
+    to {
+        transform: translate(-540%);
+    }
+}
+
+@keyframes showFromLeft {
+    from {
+        transform: translate(100%);
+    }
+    to {
+        transform: translate(0%);
+    }
+}
+
+@keyframes hideRight {
+    from {
+        transform: translate(340%);
+    }
+    to {
+        transform: translate(540%);
+    }
+}
+
+@keyframes showFromRight {
+    from {
+        transform: translate(-100%);
+    }
+    to {
+        transform: translate(0%);
+    }
+}
+
+.left {
+    animation: slideFromRight 0.5s forwards;
+}
+
+.right {
+    animation: slideFromLeft 0.5s forwards;
+}
+
+.boxLeft {
+    animation: slideLeft 0.5s forwards;
+}
+
+.boxRight {
+    animation: slideRight 0.5s forwards;
+}
+
+.hideLeft {
+    animation: hideLeft 0.5s, forwards;
+}
+
+.showFromLeft {
+    animation: showFromLeft 0.5 forwards;
+}
+
+.hideRight {
+    animation: hideRight 0.5s, forwards;
+}
+
+.showFromRight {
+    animation: showFromRight 0.5 forwards;
+}
