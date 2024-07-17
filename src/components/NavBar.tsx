@@ -8,6 +8,35 @@ const NavBar = () => {
     const { colorMode } = useColorMode();
     const scrollDir = useScrollDirection();
 
+    const projectsPos = 550;
+    const studiesPos = 1250;
+
+    const moveScroll = (option: string) => {
+        let newPos = 0;
+
+        switch(option) {
+            case "Projects":
+                newPos = projectsPos;
+            break;
+            case "About me":
+                newPos = projectsPos;
+            break;
+            case "Studies":
+                newPos = studiesPos;
+            break;
+            case "Experience":
+                newPos = studiesPos;
+            break;
+        }
+
+        setTimeout(() => {
+            window.scrollTo({
+              top: newPos,
+              behavior: 'smooth',
+            });
+        }, 140);
+    }
+
     useEffect(() => {
         if (scrollDir === "down") {
             setVisible(true);
@@ -37,16 +66,16 @@ const NavBar = () => {
 
             <HStack justifyContent={"space-between"}>
 
-                <NavBarButton >
+                <NavBarButton onClick={(option) => moveScroll(option)} >
                     Projects
                 </NavBarButton>
-                <NavBarButton>
+                <NavBarButton onClick={(option) => moveScroll(option)}>
                     About me
                 </NavBarButton>
-                <NavBarButton>
+                <NavBarButton onClick={(option) => moveScroll(option)}>
                     Studies
                 </NavBarButton>
-                <NavBarButton>
+                <NavBarButton onClick={(option) => moveScroll(option)}>
                     Experience
                 </NavBarButton>
             </HStack>

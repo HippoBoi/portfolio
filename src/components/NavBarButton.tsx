@@ -2,10 +2,11 @@ import { Button, useColorModeValue } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
 interface Props {
-    children?: ReactNode;
+    children?: string;
+    onClick: (option: string) => void;
 }
 
-const NavBarButton = ({ children = "" }: Props) => {
+const NavBarButton = ({ children = "", onClick }: Props) => {
     const hoverTextColor = useColorModeValue("red.900", "red.100");
     const hoverColor = useColorModeValue("red.100", "red.900");
 
@@ -14,6 +15,7 @@ const NavBarButton = ({ children = "" }: Props) => {
             rounded={"60px"}
             padding={"20px"} 
             marginRight={"12px"}
+            onClick={() => onClick(children)}
             _hover={{
                 "padding": "12px",
                 "fontSize": "20px",
