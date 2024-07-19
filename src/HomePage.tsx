@@ -5,6 +5,14 @@ import { useEffect, useState } from "react";
 import ProjectsList, { ProjectTemplate } from "./components/ProjectsList";
 import TopBG from "./components/TopBG";
 import Studies from "./components/Studies";
+import AboutMe from "./components/AboutMe";
+import Techonologies from "./components/Techonologies";
+import drawshare from "./images/projects/drawshare2.webp"
+import terracalc from "./images/projects/terra-calc.webp"
+import hippomusic from "./images/projects/hippo-music.webp"
+import csvtojson from "./images/projects/csv-to-json.webp"
+import luisgg from "./images/projects/luisgg.webp"
+import socialred from "./images/projects/socialred.webp"
 
 function HomePage() {
     const [showArrow, setShowArrow] = useState(false);
@@ -34,17 +42,14 @@ function HomePage() {
         };
     }, []);
 
-    const images = [
-        "https://ddragon.leagueoflegends.com/cdn/img/champion/centered/Shen_0.jpg",
-        "https://ddragon.leagueoflegends.com/cdn/img/champion/centered/Shen_1.jpg",
-        "https://ddragon.leagueoflegends.com/cdn/img/champion/centered/Shen_2.jpg",
-        "https://ddragon.leagueoflegends.com/cdn/img/champion/centered/Shen_3.jpg"
-    ]
-
     const projects: ProjectTemplate[] = [
-        {name: "proyecto 1", description: "epic proyect", image: images[0]},
-        {name: "proyecto 2", description: "epic proyect 2", image: images[1]},
-        {name: "proyecto 3", description: "epic proyect 3", image: images[2]}
+        {name: "Hippo Music", description: "epic proyect 3", image: hippomusic},
+        {name: "Terra-Calc", description: "epic proyect 2", image: terracalc},
+        {name: "Social Wire", description: "epic proyect 3", image: socialred},
+        {name: "Draw Share", description: "This project allows users to upload their drawings and share them with other artists. Features account authentication and validations.", 
+            image: drawshare},
+        {name: "CSV to JSON", description: "epic proyect 3", image: csvtojson},
+        {name: "Luis.GG", description: "epic proyect 3", image: luisgg},
     ]
     
     return (      
@@ -76,6 +81,10 @@ function HomePage() {
             <Center marginBottom={"200px"}>
                 <ProjectsList projects={projects} />
             </Center>
+
+            <AboutMe />
+
+            <Techonologies />
 
             <Studies />
             

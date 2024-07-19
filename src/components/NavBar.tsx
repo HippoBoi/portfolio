@@ -9,7 +9,8 @@ const NavBar = () => {
     const scrollDir = useScrollDirection();
 
     const projectsPos = 550;
-    const studiesPos = 1250;
+    const about = 1150;
+    const studiesPos = 1650;
 
     const moveScroll = (option: string) => {
         let newPos = 0;
@@ -19,7 +20,7 @@ const NavBar = () => {
                 newPos = projectsPos;
             break;
             case "About me":
-                newPos = projectsPos;
+                newPos = about;
             break;
             case "Studies":
                 newPos = studiesPos;
