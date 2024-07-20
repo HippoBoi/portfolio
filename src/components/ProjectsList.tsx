@@ -82,7 +82,7 @@ const ProjectsList = ({ projects }: Props) => {
                 key={projects[index].name} 
                 borderWidth="1px" 
                 borderRadius="lg" 
-                bgColor={colorMode === "light" ? "gray.300" : "gray.800"}
+                bgColor={colorMode === "light" ? "gray.300" : "gray.900"}
                 className={slideDirection}
                 onAnimationEnd={() => setSlideDirection("")}
                 width={"44vw"} 
