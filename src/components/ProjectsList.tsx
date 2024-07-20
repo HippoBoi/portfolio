@@ -8,6 +8,7 @@ export interface ProjectTemplate {
     name: string;
     description: string;
     image: string;
+    link?: string;
 }
 
 interface Props {
@@ -85,7 +86,7 @@ const ProjectsList = ({ projects }: Props) => {
                 className={slideDirection}
                 onAnimationEnd={() => setSlideDirection("")}
                 width={"44vw"} 
-                height={"100%"}
+                height={"68vh"}
                 marginX={"5px"}
                 zIndex={2}
                 _hover={{ 
@@ -93,10 +94,10 @@ const ProjectsList = ({ projects }: Props) => {
                     "transition": "transform 0.5s ease-out",
                     "cursor": "pointer"
                 }}
-                sx={{
+                sx={{ 
                     "transition": "transform 1s ease-in-out"
                 }}>
-                <Image src={projects[index].image} alt={projects[index].name} width={'100%'} height={'100%'} />
+                <Image src={projects[index].image} alt={projects[index].name} width={'44vw'} height={'45vh'} />
                 <Box p={6}>
                     <Heading fontSize="xl">{projects[index].name}</Heading>
                     <Text mt={4}>{projects[index].description}</Text>

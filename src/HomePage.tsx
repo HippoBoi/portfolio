@@ -43,13 +43,18 @@ function HomePage() {
     }, []);
 
     const projects: ProjectTemplate[] = [
-        {name: "Hippo Music", description: "epic proyect 3", image: hippomusic},
-        {name: "Terra-Calc", description: "epic proyect 2", image: terracalc},
-        {name: "Social Wire", description: "epic proyect 3", image: socialred},
-        {name: "Draw Share", description: "This project allows users to upload their drawings and share them with other artists. Features account authentication and validations.", 
-            image: drawshare},
-        {name: "CSV to JSON", description: "epic proyect 3", image: csvtojson},
-        {name: "Luis.GG", description: "epic proyect 3", image: luisgg},
+        {name: "Hippo Music", description: "I developed this website to upload, share and store some my songs. Built with React and CSS.", 
+            image: hippomusic, link: "https://hippo-music.vercel.app"},
+        {name: "Terra-Calc", description: "This project features a working calculator to gather information about the video-game Terraria. Built with React and Chakra UI.", 
+            image: terracalc, link: "https://terra-calc.vercel.app"},
+        {name: "Social Wire", description: "This project features the layout of a social media application and functionality. Built with React, Chakra UI and Bootstrap.", 
+            image: socialred, link: "https://social-red.vercel.app"},
+        {name: "Draw Share", description: "This project allows users to upload and share their drawings. Features account authentication and validations.", 
+            image: drawshare, link: "https://draw-share-indol.vercel.app"},
+        {name: "CSV to JSON", description: "I developed this project to automatize the simple task of converting a file. Built using React and Express for the API Rest", 
+            image: csvtojson, link: "https://csv-to-json-nine.vercel.app"},
+        {name: "Luis.GG", description: "This projects gathers player data from the official Riot Games API and displays the most important for the user.", 
+            image: luisgg, link: "https://luisgg.vercel.app"},
     ]
     
     return (      

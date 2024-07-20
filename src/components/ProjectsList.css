@@ -87,17 +87,17 @@
 }
 
 .hideLeft {
-    animation: hideLeft 0.5s, forwards;
+    animation: hideLeft 0.35s, forwards;
 }
 
 .showFromLeft {
-    animation: showFromLeft 0.5 forwards;
+    animation: showFromLeft 0.4s, forwards;
 }
 
 .hideRight {
-    animation: hideRight 0.5s, forwards;
+    animation: hideRight 0.35s, forwards;
 }
 
 .showFromRight {
-    animation: showFromRight 0.5 forwards;
+    animation: showFromRight 0.4s, forwards;
 }

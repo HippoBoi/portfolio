@@ -1,5 +1,6 @@
 import { Box, Heading, Image, useColorMode } from '@chakra-ui/react';
 import { ProjectTemplate } from '../ProjectsList';
+import { useEffect, useState } from 'react';
 
 interface Props {
     slideDirection: string;
@@ -9,6 +10,17 @@ interface Props {
 
 const SliderBox = ({ slideDirection, project, orientation }: Props) => {
     const { colorMode } = useColorMode();
+    const [overrideAnim, setOverrideAnim] = useState(false);
+
+    useEffect(() => {
+        console.log("slide dir: " + slideDirection);
+        console.log("override: " + overrideAnim);
+
+        if (orientation === slideDirection) {
+            setTimeout(() => setOverrideAnim(true), 100);
+            setTimeout(() => setOverrideAnim(false), 600);
+        }
+    }), [slideDirection];
     
     return (
         <Box 
@@ -20,11 +32,17 @@ const SliderBox = ({ slideDirection, project, orientation }: Props) => {
             className={
                 orientation === "left" 
                 ? 
-                    slideDirection === "right" ? 
-                    "boxLeft" 
-                    : slideDirection === "left" ? 
-                    "hideRight" : ""
+                    overrideAnim ? 
+                    "showFromRight"
+                    :
+                        slideDirection === "right" ? 
+                        "boxLeft" 
+                        : slideDirection === "left" ? 
+                        "hideRight" : ""
                 :
+                    overrideAnim ? 
+                    "showFromLeft"
+                    :
                     slideDirection === "left" ? 
                     "boxRight" 
                     : slideDirection === "right" ? 
