@@ -79,7 +79,7 @@ const ProjectsList = ({ projects }: Props) => {
 
             {/* middle selected box */}
             <Box 
-                key={projects[index].name} 
+                key={projects[index].name}
                 borderWidth="1px" 
                 borderRadius="lg" 
                 bgColor={colorMode === "light" ? "gray.300" : "gray.900"}
@@ -89,6 +89,9 @@ const ProjectsList = ({ projects }: Props) => {
                 height={"68vh"}
                 marginX={"5px"}
                 zIndex={2}
+                onClick={() => {
+                    window.open(projects[index].link, "_blank");
+                }}
                 _hover={{ 
                     "transform": `${disableButton ? "scale(1.0)" : "scale(1.05)"}`,
                     "transition": "transform 0.5s ease-out",
