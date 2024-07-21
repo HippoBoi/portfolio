@@ -10,7 +10,7 @@ const NavBar = () => {
 
     const projectsPos = 550;
     const about = 1150;
-    const studiesPos = 1650;
+    const studiesPos = 2420;
 
     const moveScroll = (option: string) => {
         let newPos = 0;

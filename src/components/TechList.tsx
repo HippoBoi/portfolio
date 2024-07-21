@@ -31,7 +31,7 @@ const TechList = () => {
 
     return (
         <VStack>
-            <HStack spacing={"40px"} marginTop={"40px"}>
+            <HStack maxWidth={"235px"} spacing={"40px"} marginTop={"40px"}>
                 {firstLine.map((logo) => (
                     <TechItem name={logo} logo={logoMap[logo]} />
                 ))}

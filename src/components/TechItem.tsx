@@ -1,4 +1,4 @@
-import { Image, Text, VStack } from '@chakra-ui/react';
+import { Image, Text, useColorModeValue, VStack } from '@chakra-ui/react';
 import { useState } from 'react';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 
 const TechItem = ({ name, logo }: Props) => {
     const [showName, setShowName] = useState(false);
-    const textShadow = "black";
+    const textShadow = useColorModeValue("black", "black");
     
     return (
         <VStack>
@@ -25,6 +25,7 @@ const TechItem = ({ name, logo }: Props) => {
             />
             
             <Text 
+                color={"white"}
                 marginTop={"1px"} 
                 fontWeight={"bold"} 
                 opacity={ showName ? "100%" : "0%" }
