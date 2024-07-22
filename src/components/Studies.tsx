@@ -13,7 +13,7 @@ const Studies = () => {
     );
     
     return (
-        <VStack>
+        <VStack marginBottom={"200px"}>
             <Text 
                 fontSize={"50px"}
                 fontWeight={"bold"} 

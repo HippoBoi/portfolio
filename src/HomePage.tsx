@@ -13,6 +13,8 @@ import hippomusic from "./images/projects/hippo-music.webp"
 import csvtojson from "./images/projects/csv-to-json.webp"
 import luisgg from "./images/projects/luisgg.webp"
 import socialred from "./images/projects/socialred.webp"
+import Experience from "./components/Experience";
+import BottomText from "./components/BottomText";
 
 function HomePage() {
     const [showArrow, setShowArrow] = useState(false);
@@ -92,6 +94,10 @@ function HomePage() {
             <Techonologies />
 
             <Studies />
+
+            <Experience />
+
+            <BottomText />
             
             {showArrow && (
                 <div className="scroll-indicator"></div>
