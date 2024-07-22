@@ -1,11 +1,10 @@
 import { Center, Text, useColorModeValue } from '@chakra-ui/react'
-import React from 'react'
 
 const BottomText = () => {
     const weight = useColorModeValue("bold", "");
 
     return (
-        <Center marginTop={"220px"}>
+        <Center marginTop={"260px"}>
             <Text 
                 fontWeight={weight} as={"i"}>
                 Background images used in this site are property of RE-LOGIC

@@ -11,6 +11,7 @@ const NavBar = () => {
     const projectsPos = 550;
     const about = 1150;
     const studiesPos = 2420;
+    const experiencePos = 3500;
 
     const moveScroll = (option: string) => {
         let newPos = 0;
@@ -26,7 +27,7 @@ const NavBar = () => {
                 newPos = studiesPos;
             break;
             case "Experience":
-                newPos = studiesPos;
+                newPos = experiencePos;
             break;
         }
 
