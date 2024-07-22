@@ -6,7 +6,11 @@ import django from "../images/certificates/django.webp"
 
 import Certificate from './Certificate';
 
-const Studies = () => {
+interface Props {
+    language: "eng" | "esp";
+}
+
+const Studies = ({ language }: Props) => {
     const textShadow = useColorModeValue(
         "white",
         "black"
@@ -25,16 +29,16 @@ const Studies = () => {
                         1.5px 1.5px 0 ${textShadow}
                     `,
                 }}> 
-                Certificates
+                {language === "eng" ? "Certificates" : "Certificados"} 
             </Text>
 
             <HStack spacing={"60px"} marginTop={"30px"}>
-                <Certificate image={sql} title="Full SQL Course"></Certificate>
-                <Certificate image={uni} title="University Student"></Certificate>
+                <Certificate image={sql} title={language === "eng" ? "Full SQL Course" : "Curso SQL Completo"}></Certificate>
+                <Certificate image={uni} title={language === "eng" ? "University Student" : "Estudiante Universitario"}></Certificate>
             </HStack>
             <HStack spacing={"60px"} marginTop={"30px"}>
-                <Certificate image={react} title="React Course"></Certificate>
-                <Certificate image={django} title="Django Course"></Certificate>
+                <Certificate image={react} title={language === "eng" ? "React Course" : "Curso de React"}></Certificate>
+                <Certificate image={django} title={language === "eng" ? "Django Course" : "Curso de Django"}></Certificate>
             </HStack>
         </VStack>
     );

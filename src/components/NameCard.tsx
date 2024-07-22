@@ -2,9 +2,12 @@ import { Box, Text, VStack, Image, HStack, useColorModeValue, useBreakpointValue
 import theme from "../TextStyles";
 import foto from "../assets/yo.webp";
 import "./NameCard.css";
-import { useState } from "react";
 
-const NameCard = () => {
+interface Props {
+    language: "eng" | "esp";
+}
+
+const NameCard = ({ language }: Props) => {
     const defaultColor = useColorModeValue("#0f1321", "purple.200");
     const lightColor = useColorModeValue("#0f1321", "purple.100");
     const darkerColor = useColorModeValue("#1d2336", "purple.300");
@@ -17,7 +20,7 @@ const NameCard = () => {
                         fontSize={"15px"} as={"i"} 
                         opacity={"60%"} color={defaultColor}
                         textShadow={"0px 2px 4px rgba(0, 0, 0, 0.4)"}>
-                        Hello, I'm
+                        {language === "eng" ? "Hello, I'm" : "Hola, soy"}
                     </Text>
                     <Text 
                         style={theme.textStyles.important} color={lightColor}

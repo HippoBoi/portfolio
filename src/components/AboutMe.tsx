@@ -1,6 +1,10 @@
 import { useColorModeValue, Text, VStack, HStack, Card, Center, keyframes, useColorMode } from '@chakra-ui/react';
 
-const AboutMe = () => {
+interface Props {
+    language: "eng" | "esp";
+};
+
+const AboutMe = ({ language }: Props) => {
     const textShadow = useColorModeValue(
         "white",
         "black"
@@ -35,10 +39,10 @@ const AboutMe = () => {
                         1.5px 1.5px 0 ${textShadow}
                     `,
                 }}> 
-                About Me
+                {language === "eng" ? "About Me" : "Sobre Mi" }
             </Text>
             
-            <Card bgColor={cardColor} padding={"10px"} maxWidth={"400px"} overflow={"hidden"} rounded={"40px"}>
+            <Card bgColor={cardColor} padding={"10px"} maxWidth={"420px"} overflow={"hidden"} rounded={"40px"}>
                 <HStack>
                     <Text 
                         color={textColor} 
@@ -51,7 +55,7 @@ const AboutMe = () => {
                                 0.25px 0.25px 0 ${textOutline}
                             `,
                         }}>
-                        I love solving problems.
+                        {language === "eng" ? "I love solving problems." : "Amo resolver problemas." }
                     </Text>
                     <Text 
                         fontSize={"20px"} 
@@ -66,7 +70,7 @@ const AboutMe = () => {
                                 0.25px 0.25px 0 ${textOutline}
                             `,
                         }}>
-                        That's my job!
+                        {language === "eng" ? "That's my job!" : "Es mi trabajo!" }
                     </Text>
                 </HStack>
             </Card>
@@ -74,10 +78,19 @@ const AboutMe = () => {
             <Card 
                 bgColor={descColor} marginTop={"10px"} paddingX={"20px"} paddingY={"10px"} 
                 maxWidth={"700px"} overflow={"hidden"} rounded={"20px"}>
-                    <Text fontSize={"20px"} textAlign={"center"} fontWeight={`${colorMode === "light" ? "bold" : ""}`}>
+                    {language === "eng" 
+                    ? (
+                        <Text fontSize={"20px"} textAlign={"center"} fontWeight={`${colorMode === "light" ? "bold" : ""}`}>
                         I'm Andrés, a Full-Stack developer with a passion for finding solutions.<br />
                         My main focus is to create user-friendly services easy to use for any person.
-                    </Text>
+                        </Text>
+                    )
+                    : (
+                        <Text fontSize={"20px"} textAlign={"center"} fontWeight={`${colorMode === "light" ? "bold" : ""}`}>
+                        Soy Andrés, un desarrollador Full-Stack apasionado por encontrar soluciones modernas.<br />
+                        Me especializo en desarrollar servicios eficientes y amigables para el usuario.
+                        </Text>
+                    )}
             </Card>
 
             <Card bgColor={descColor} marginTop={"10px"} paddingX={"20px"} maxWidth={"600px"} overflow={"hidden"}>
@@ -86,29 +99,29 @@ const AboutMe = () => {
                             <Text 
                                 fontSize={"20px"}
                                 fontWeight={`${colorMode === "light" ? "bold" : ""}`}>
-                                I develop 
+                                {language === "eng" ? "I develop" : "Desarrollo aplicaciones"}
                             </Text>
                             <Text  
                                 fontSize={"20px"} 
                                 animation={`${colorAnimation} 2s linear infinite`}
                                 as={"b"}>
-                                both 
+                                {language === "eng" ? "both" : "tanto"} 
                             </Text>
                             <Text 
                                 fontSize={"20px"}
                                 fontWeight={`${colorMode === "light" ? "bold" : ""}`}>
-                                mobile
+                                {language === "eng" ? "mobile" : "para móviles"} 
                             </Text>
                             <Text 
                                 fontSize={"20px"} 
                                 animation={`${colorAnimation} 2s linear infinite`}
                                 as={"b"}>
-                                and 
+                                {language === "eng" ? "and" : "como"}
                             </Text>
                             <Text 
                                 fontSize={"20px"}
                                 fontWeight={`${colorMode === "light" ? "bold" : ""}`}>
-                                web applications.
+                                {language === "eng" ? "web applications" : "web"} 
                             </Text>
                         </HStack>
                     </Center>

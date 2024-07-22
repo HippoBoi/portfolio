@@ -13,9 +13,6 @@ const SliderBox = ({ slideDirection, project, orientation }: Props) => {
     const [overrideAnim, setOverrideAnim] = useState(false);
 
     useEffect(() => {
-        console.log("slide dir: " + slideDirection);
-        console.log("override: " + overrideAnim);
-
         if (orientation === slideDirection) {
             setTimeout(() => setOverrideAnim(true), 100);
             setTimeout(() => setOverrideAnim(false), 600);

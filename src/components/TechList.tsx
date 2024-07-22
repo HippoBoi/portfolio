@@ -33,17 +33,17 @@ const TechList = () => {
         <VStack>
             <HStack maxWidth={"235px"} spacing={"40px"} marginTop={"40px"}>
                 {firstLine.map((logo) => (
-                    <TechItem name={logo} logo={logoMap[logo]} />
+                    <TechItem key={logo} name={logo} logo={logoMap[logo]} />
                 ))}
             </HStack>
             <HStack spacing={"40px"} marginTop={"25px"}>
                 {secondLine.map((logo) => (
-                    <TechItem name={logo} logo={logoMap[logo]} />
+                    <TechItem key={logo} name={logo} logo={logoMap[logo]} />
                 ))}
             </HStack>
             <HStack spacing={"40px"} marginTop={"25px"}>
                 {thirdLine.map((logo) => (
-                    <TechItem name={logo} logo={logoMap[logo]} />
+                    <TechItem key={logo} name={logo} logo={logoMap[logo]} />
                 ))}
             </HStack>
         </VStack>

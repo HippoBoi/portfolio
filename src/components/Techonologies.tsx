@@ -3,7 +3,11 @@ import mushBG from "../images/mushroom.webp"
 import { Parallax } from 'react-parallax';
 import TechList from './TechList';
 
-const Techonologies = () => {
+interface Props {
+    language: "eng" | "esp";
+}
+
+const Techonologies = ({ language }: Props) => {
     const { colorMode } = useColorMode();
     const textShadow = useColorModeValue(
         "white",
@@ -27,11 +31,11 @@ const Techonologies = () => {
                         1.5px 1.5px 0 ${textShadow}
                     `,
                 }}> 
-                Technologies
+                {language === "eng" ? "Technologies" : "Tecnologías"} 
             </Text>
 
             <Text fontWeight={colorMode === "light" ? "bold" : ""} as={"i"}>
-                Tools that I use for my job
+                {language === "eng" ? "Tools that I use for my job" : "Herramientas para mi trabajo"} 
             </Text>
 
             <Card width={"100%"} height={"400px"} bgColor={'#010203'} rounded={0}>
