@@ -1,4 +1,4 @@
-import { Box, Link, Stack, Text, useColorMode, useColorModeValue, VStack } from '@chakra-ui/react'
+import { Box, Link, Text, useColorMode, useColorModeValue, VStack } from '@chakra-ui/react'
 
 interface Props {
     language: "eng" | "esp";
@@ -27,29 +27,22 @@ const Experience = ({ language }: Props) => {
                 }}>
                 {language === "eng" ? "Experience" : "Experiencia"}
             </Text>
-            <Box borderWidth={"2px"} borderRadius={"lg"} padding={"5px"} width="100%" maxW="900px">
-                <VStack>
+            <Box borderWidth={"2px"} borderRadius={"lg"} p={{ base: 4, md: 6 }} width="100%" maxW="900px">
+                <VStack spacing={2}>
                     <Text fontSize={{ base: "18px", md: "20px" }} fontWeight={"bold"} textAlign="center">{language === "eng" ? "Mobile App Developer" : "Desarollador de aplicación móvil"}</Text>
                     <Text fontSize={"15px"} as={"i"}>21/06/2024 - {language === "eng" ? "Current" : "Actual"}</Text>
                 </VStack>
-                <Stack marginTop={"20px"} direction={{ base: "column", md: "row" }} align="center" spacing={2} textAlign={{ base: "center", md: "left" }}>
-                    <Text fontWeight={colorMode === "light" ? "bold" : ""}>
-                        {language === "eng" ? 
-                        "Developing a mobile application for " : 
-                        "Desarrollando una aplicación móvil para "}
-                        
-                    </Text> 
-                    <Link 
+                <Text marginTop={"20px"} fontWeight={colorMode === "light" ? "bold" : ""} textAlign="center">
+                    {language === "eng" ? "Developing a mobile application for " : "Desarrollando una aplicación móvil para "}
+                    <Link
                         fontWeight={"bold"}
                         href='https://www.safewave.cl'
                         target='_blank'
                         color={"blue.200"}>
                         Safe Wave
                     </Link>
-                    <Text fontWeight={colorMode === "light" ? "bold" : ""}>
-                        {language === "eng" ? "using Flutter." : "utilizando Flutter."}
-                    </Text>
-                </Stack>
+                    {language === "eng" ? " using Flutter." : " utilizando Flutter."}
+                </Text>
                 <Text fontWeight={colorMode === "light" ? "bold" : ""} textAlign="center">
                     {language === "eng" ? 
                     "I have currently developed user profiles' interface and functionality," : 
