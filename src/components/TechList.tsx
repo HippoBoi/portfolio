@@ -28,8 +28,8 @@ const TechList = () => {
     const techs = ["React", "Typescript", "Javascript", "Django", "React Router", "Express", "MySQL", "Chakra UI", "Python", "Node JS"];
 
     return (
-        <VStack>
-            <SimpleGrid columns={{ base: 2, sm: 3, md: 4, lg: 5 }} spacing={{ base: 6, md: 8 }} marginTop={"40px"} width="100%" px={4}>
+        <VStack width="100%" minH="inherit" justifyContent="center">
+            <SimpleGrid columns={{ base: 2, sm: 3, md: 4, lg: 5 }} spacing={{ base: 6, md: 8 }} marginTop={"40px"} width="100%" px={0} justifyItems="center">
                 {techs.map((logo) => (
                     <TechItem key={logo} name={logo} logo={logoMap[logo]} />
                 ))}
