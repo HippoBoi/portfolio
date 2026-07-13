@@ -11,7 +11,7 @@ const TechItem = ({ name, logo }: Props) => {
     const textShadow = useColorModeValue("black", "black");
     
     return (
-        <VStack>
+        <VStack spacing={2}>
             <Image src={logo} width={"51px"}
                 border="2px solid transparent"
                 onMouseEnter={() => setShowName(true)}
@@ -29,6 +29,7 @@ const TechItem = ({ name, logo }: Props) => {
                 marginTop={"1px"} 
                 fontWeight={"bold"} 
                 opacity={ showName ? "100%" : "0%" }
+                fontSize={{ base: "12px", md: "14px" }}
                 sx={{
                     textShadow: `
                         -1.5px -1.5px 0 ${textShadow},

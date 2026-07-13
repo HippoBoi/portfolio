@@ -23,18 +23,18 @@ const App = () => {
         <NavBar />
         <Box
             w="100%"
-            h="650vh"
+            minH="100vh"
             bgImage={bgImage}
             bgRepeat={'repeat'}
             bgSize="auto"
             bgPosition="center">
             <Box
                 w="100%"
-                h="100vh"
+                minH="100vh"
                 bgImage={bgImage1}
                 bgSize="cover"
                 bgPosition="center"
-                bgAttachment={"fixed"}>
+                bgAttachment={{ base: "scroll", md: "fixed" }}>
                 <HomePage />
             </Box>
         </Box>

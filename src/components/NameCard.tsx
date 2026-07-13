@@ -1,4 +1,4 @@
-import { Box, Text, VStack, Image, HStack, useColorModeValue, useBreakpointValue } from "@chakra-ui/react";
+import { Box, Flex, Text, VStack, Image, useColorModeValue } from "@chakra-ui/react";
 import theme from "../TextStyles";
 import foto from "../assets/yo.webp";
 import "./NameCard.css";
@@ -13,11 +13,17 @@ const NameCard = ({ language }: Props) => {
     const darkerColor = useColorModeValue("#1d2336", "purple.300");
 
     return (
-        <Box marginLeft={"24vw"}>
-            <HStack spacing={"120px"}>
-                <VStack>
+        <Box px={{ base: 4, md: 8 }}>
+            <Flex
+                maxW="1100px"
+                mx="auto"
+                direction={{ base: "column-reverse", md: "row" }}
+                align="center"
+                justify="center"
+                gap={{ base: 8, md: 20 }}>
+                <VStack align={{ base: "center", md: "flex-start" }} spacing={1} textAlign={{ base: "center", md: "left" }}>
                     <Text 
-                        fontSize={"15px"} as={"i"} 
+                        fontSize={{ base: "14px", md: "15px" }} as={"i"} 
                         opacity={"60%"} color={defaultColor}
                         textShadow={"0px 2px 4px rgba(0, 0, 0, 0.4)"}>
                         {language === "eng" ? "Hello, I'm" : "Hola, soy"}
@@ -34,10 +40,10 @@ const NameCard = ({ language }: Props) => {
                     </Text>
                 </VStack>
 
-                <Box boxSize={"200px"} >
-                    <Image src={foto} boxSize={"100%"} rounded={"80px"} />
+                <Box boxSize={{ base: "170px", md: "200px" }}>
+                    <Image src={foto} boxSize={"100%"} rounded={{ base: "48px", md: "80px" }} />
                 </Box>
-            </HStack>
+            </Flex>
         </Box>
     );
 }

@@ -1,4 +1,4 @@
-import { HStack, Image, Text, VStack } from '@chakra-ui/react';
+import { SimpleGrid, Image, Text, VStack } from '@chakra-ui/react';
 import chakra from "../images/logos/chakraui.webp"
 import django from "../images/logos/django-icon.webp"
 import express from "../images/logos/express.webp"
@@ -25,27 +25,15 @@ const TechList = () => {
         "Typescript": ts
     }
 
-    const firstLine = ["React", "Typescript", "Javascript"];
-    const secondLine = ["Django", "React Router", "Express", "MySQL"];
-    const thirdLine = ["Chakra UI", "Python", "Node JS"];
+    const techs = ["React", "Typescript", "Javascript", "Django", "React Router", "Express", "MySQL", "Chakra UI", "Python", "Node JS"];
 
     return (
         <VStack>
-            <HStack maxWidth={"235px"} spacing={"40px"} marginTop={"40px"}>
-                {firstLine.map((logo) => (
+            <SimpleGrid columns={{ base: 2, sm: 3, md: 4, lg: 5 }} spacing={{ base: 6, md: 8 }} marginTop={"40px"} width="100%" px={4}>
+                {techs.map((logo) => (
                     <TechItem key={logo} name={logo} logo={logoMap[logo]} />
                 ))}
-            </HStack>
-            <HStack spacing={"40px"} marginTop={"25px"}>
-                {secondLine.map((logo) => (
-                    <TechItem key={logo} name={logo} logo={logoMap[logo]} />
-                ))}
-            </HStack>
-            <HStack spacing={"40px"} marginTop={"25px"}>
-                {thirdLine.map((logo) => (
-                    <TechItem key={logo} name={logo} logo={logoMap[logo]} />
-                ))}
-            </HStack>
+            </SimpleGrid>
         </VStack>
     );
 }

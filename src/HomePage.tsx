@@ -1,4 +1,4 @@
-import { Box, Center, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import { Box, Center, Flex, Text, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import NameCard from "./components/NameCard";
 import SwitchTheme from "./components/SwitchTheme";
 import { useEffect, useState } from "react";
@@ -88,19 +88,27 @@ function HomePage() {
         <>  
             <TopBG></TopBG>
             
-            <Box bgGradient={bgGradient}>
-                <Box position={"absolute"} top={"20vh"} left={"25vw"}>
+            <Box bgGradient={bgGradient} position="relative" overflow="hidden">
+                <Flex
+                    position="absolute"
+                    top={{ base: "1rem", md: "2rem" }}
+                    left={{ base: "1rem", md: "25vw" }}
+                    right={{ base: "1rem", md: "auto" }}
+                    gap={3}
+                    wrap="wrap"
+                    justify={{ base: "center", md: "flex-start" }}
+                    zIndex={2}>
                     <SwitchTheme language={language} colorMode={colorMode} toggleColorMode={toggleColorMode} />
-                </Box>
-                <Box position={"absolute"} top={"15.1vh"} left={"42vw"}>
                     <SwitchLanguage language={language} onClick={(lang: "eng" | "esp") => setLanguage(lang)} />
+                </Flex>
+                <Box pt={{ base: "6.5rem", md: "5rem" }} pb={{ base: "2rem", md: "0" }}>
+                    <NameCard language={language} />
                 </Box>
-                <NameCard language={language} />
             </Box>
 
-            <Center marginTop={"205px"} marginBottom={"25px"}>
+            <Center marginTop={{ base: "3rem", md: "6rem" }} marginBottom={"25px"} px={4}>
                 <Text 
-                    fontSize={"20px"}
+                    fontSize={{ base: "18px", md: "20px" }}
                     fontWeight={"bold"} 
                     sx={{
                         textShadow: `
@@ -113,7 +121,7 @@ function HomePage() {
                     {language === "eng" ? "Recent Projects" : "Proyectos Recientes"}
                 </Text>
             </Center>
-            <Center marginBottom={"200px"}>
+            <Center marginBottom={{ base: "6rem", md: "12rem" }} px={4}>
                 <ProjectsList projects={projects} />
             </Center>
 

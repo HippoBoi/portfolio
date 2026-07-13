@@ -13,8 +13,9 @@ const NavBarButton = ({ children = "", onClick }: Props) => {
     return (
         <Button 
             rounded={"60px"}
-            padding={"20px"} 
-            marginRight={"12px"}
+            padding={{ base: "10px 14px", md: "20px" }}
+            marginRight={{ base: "0", md: "12px" }}
+            fontSize={{ base: "sm", md: "md" }}
             onClick={() => onClick(children)}
             _hover={{
                 "padding": "12px",

@@ -19,9 +19,9 @@ const Techonologies = ({ language }: Props) => {
     );
 
     return (
-        <VStack marginBottom={"160px"}>
+        <VStack marginBottom={{ base: "6rem", md: "10rem" }} px={4}>
             <Text 
-                fontSize={"50px"}
+                fontSize={{ base: "34px", md: "50px" }}
                 fontWeight={"bold"} 
                 sx={{
                     textShadow: `
@@ -38,7 +38,7 @@ const Techonologies = ({ language }: Props) => {
                 {language === "eng" ? "Tools that I use for my job" : "Herramientas para mi trabajo"} 
             </Text>
 
-            <Card width={"100%"} height={"400px"} bgColor={'#010203'} rounded={0}>
+            <Card width={"100%"} minH={{ base: "340px", md: "400px" }} py={{ base: 8, md: 0 }} bgColor={'#010203'} rounded={0}>
                 <Parallax bgImage={mushBG}
                     strength={300}
                     style={{ "height": "100%" }}>

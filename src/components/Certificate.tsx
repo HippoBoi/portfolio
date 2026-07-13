@@ -1,6 +1,4 @@
-import { VStack, Image, Text, Card, useColorMode, useColorModeValue, CardBody, Box } from '@chakra-ui/react'
-import { transform } from 'framer-motion';
-import { ReactNode } from 'react';
+import { VStack, Image, Text, useColorModeValue, Box } from '@chakra-ui/react'
 
 interface Props {
     image: string;
@@ -13,10 +11,10 @@ const Certificate = ({ image, title }: Props) => {
     const textColor = useColorModeValue("black", "white");
 
     return (
-        <VStack>
+        <VStack width="100%" spacing={4}>
             <Text 
                 align={'center'} 
-                fontSize={"32px"}
+            fontSize={{ base: "22px", md: "32px" }}
                 as={"b"}
                 color={textColor}
                 sx={{
@@ -31,12 +29,12 @@ const Certificate = ({ image, title }: Props) => {
             </Text>
 
             <Box 
-                borderWidth={"5px"} 
-                borderRadius="20px" 
+                borderWidth={{ base: "3px", md: "5px" }} 
+                borderRadius={{ base: "16px", md: "20px" }} 
                 borderColor={borderColor}
                 overflow={"hidden"}
                 _hover={{ "cursor": "pointer", '> img': { "transform": "scale(1.1)" } }}>
-                <Image src={image} width={"450px"} height={"350px"} sx={{ "transition": "transform 0.15s ease-out" }} />
+                <Image src={image} width={{ base: "100%", md: "450px" }} height={{ base: "240px", md: "350px" }} objectFit="cover" sx={{ "transition": "transform 0.15s ease-out" }} />
             </Box>
         </VStack>
     );

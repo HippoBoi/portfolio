@@ -47,6 +47,7 @@ const SliderBox = ({ slideDirection, project, orientation }: Props) => {
             }
             bgColor={colorMode === "light" ? "gray.300" : "gray.800"}
             width={"23vw"} 
+            minWidth="220px"
             zIndex={1}
             height={"100%"}>
             <Image src={project.image} alt={project.name} width={'100%'} height={'100%'} />

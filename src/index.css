@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat";
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -7,34 +26,34 @@
     height: 100vh;
 }
 
-body {
-    font-family: "Montserrat";
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
 .scroll-indicator {
     position: fixed;
     bottom: 20px;
-    left: 49%;
-    transform: translateX(-50%);
+  left: 50%;
+  transform: translateX(-50%) rotate(-45deg);
     width: 30px;
     height: 30px;
     border-left: 2px solid #635969;
     border-bottom: 2px solid #635969;
-    transform: rotate(-45deg) translateX(-50%);
     animation: bounce 2s infinite;
 }
   
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
-      transform: rotate(-45deg) translateY(0);
+    transform: translateX(-50%) rotate(-45deg) translateY(0);
     }
     40% {
-      transform: rotate(-45deg) translateX(-8px) translateY(10px);
+    transform: translateX(-50%) rotate(-45deg) translateX(-8px) translateY(10px);
     }
     60% {
-      transform: rotate(-45deg) translateX(-5px) translateY(5px);
+    transform: translateX(-50%) rotate(-45deg) translateX(-5px) translateY(5px);
     }
+}
+
+@media (max-width: 768px) {
+  .scroll-indicator {
+    bottom: 12px;
+    width: 22px;
+    height: 22px;
+  }
 }

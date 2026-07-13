@@ -1,4 +1,4 @@
-import { useColorModeValue, Text, VStack, HStack, Card, Center, keyframes, useColorMode } from '@chakra-ui/react';
+import { useColorModeValue, Text, VStack, HStack, Card, Center, keyframes, useColorMode, Stack } from '@chakra-ui/react';
 
 interface Props {
     language: "eng" | "esp";
@@ -27,9 +27,9 @@ const AboutMe = ({ language }: Props) => {
     const accentColor = useColorModeValue("gray.500", "purple.700")
 
     return (
-        <VStack marginBottom={"200px"} width={"100%"}>
+        <VStack marginBottom={{ base: "6rem", md: "12rem" }} width={"100%"} px={4} spacing={4}>
             <Text 
-                fontSize={"50px"}
+                fontSize={{ base: "34px", md: "50px" }}
                 fontWeight={"bold"} 
                 sx={{
                     textShadow: `
@@ -42,11 +42,11 @@ const AboutMe = ({ language }: Props) => {
                 {language === "eng" ? "About Me" : "Sobre Mi" }
             </Text>
             
-            <Card bgColor={cardColor} padding={"10px"} maxWidth={"420px"} overflow={"hidden"} rounded={"40px"}>
-                <HStack>
+            <Card bgColor={cardColor} padding={"10px"} maxWidth={"420px"} width="100%" overflow={"hidden"} rounded={"40px"}>
+                <Stack direction={{ base: "column", md: "row" }} align="center" textAlign="center">
                     <Text 
                         color={textColor} 
-                        fontSize={"20px"}
+                        fontSize={{ base: "18px", md: "20px" }}
                         sx={{
                             textShadow: `
                                 -0.25px -0.25px 0 ${textOutline},
@@ -58,7 +58,7 @@ const AboutMe = ({ language }: Props) => {
                         {language === "eng" ? "I love solving problems." : "Amo resolver problemas." }
                     </Text>
                     <Text 
-                        fontSize={"20px"} 
+                        fontSize={{ base: "18px", md: "20px" }} 
                         textDecor={"underline"} 
                         textDecorationColor={accentColor}
                         textDecorationThickness={"1px"}
@@ -72,54 +72,54 @@ const AboutMe = ({ language }: Props) => {
                         }}>
                         {language === "eng" ? "That's my job!" : "Es mi trabajo!" }
                     </Text>
-                </HStack>
+                </Stack>
             </Card>
 
             <Card 
                 bgColor={descColor} marginTop={"10px"} paddingX={"20px"} paddingY={"10px"} 
-                maxWidth={"700px"} overflow={"hidden"} rounded={"20px"}>
+                maxWidth={"700px"} width="100%" overflow={"hidden"} rounded={"20px"}>
                     {language === "eng" 
                     ? (
-                        <Text fontSize={"20px"} textAlign={"center"} fontWeight={`${colorMode === "light" ? "bold" : ""}`}>
+                        <Text fontSize={{ base: "16px", md: "20px" }} textAlign={"center"} fontWeight={`${colorMode === "light" ? "bold" : ""}`}>
                         I'm Andrés, a Full-Stack developer with a passion for finding solutions.<br />
                         My main focus is to create user-friendly services easy to use for any person.
                         </Text>
                     )
                     : (
-                        <Text fontSize={"20px"} textAlign={"center"} fontWeight={`${colorMode === "light" ? "bold" : ""}`}>
+                        <Text fontSize={{ base: "16px", md: "20px" }} textAlign={"center"} fontWeight={`${colorMode === "light" ? "bold" : ""}`}>
                         Soy Andrés, un desarrollador Full-Stack apasionado por encontrar soluciones modernas.<br />
                         Me especializo en desarrollar servicios eficientes y amigables para el usuario.
                         </Text>
                     )}
             </Card>
 
-            <Card bgColor={descColor} marginTop={"10px"} paddingX={"20px"} maxWidth={"600px"} overflow={"hidden"}>
+            <Card bgColor={descColor} marginTop={"10px"} paddingX={"20px"} maxWidth={"600px"} width="100%" overflow={"hidden"}>
                     <Center>
-                        <HStack>
+                        <HStack flexWrap="wrap" justifyContent="center">
                             <Text 
-                                fontSize={"20px"}
+                                fontSize={{ base: "16px", md: "20px" }}
                                 fontWeight={`${colorMode === "light" ? "bold" : ""}`}>
                                 {language === "eng" ? "I develop" : "Desarrollo aplicaciones"}
                             </Text>
                             <Text  
-                                fontSize={"20px"} 
+                                fontSize={{ base: "16px", md: "20px" }} 
                                 animation={`${colorAnimation} 2s linear infinite`}
                                 as={"b"}>
                                 {language === "eng" ? "both" : "tanto"} 
                             </Text>
                             <Text 
-                                fontSize={"20px"}
+                                fontSize={{ base: "16px", md: "20px" }}
                                 fontWeight={`${colorMode === "light" ? "bold" : ""}`}>
                                 {language === "eng" ? "mobile" : "para móviles"} 
                             </Text>
                             <Text 
-                                fontSize={"20px"} 
+                                fontSize={{ base: "16px", md: "20px" }} 
                                 animation={`${colorAnimation} 2s linear infinite`}
                                 as={"b"}>
                                 {language === "eng" ? "and" : "como"}
                             </Text>
                             <Text 
-                                fontSize={"20px"}
+                                fontSize={{ base: "16px", md: "20px" }}
                                 fontWeight={`${colorMode === "light" ? "bold" : ""}`}>
                                 {language === "eng" ? "web applications" : "web"} 
                             </Text>

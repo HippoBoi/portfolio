@@ -1,4 +1,4 @@
-import { Box, Heading, Image, Text, HStack, Button, useColorMode, VStack } from '@chakra-ui/react';
+import { Box, Flex, Heading, Image, Text, useColorMode, useBreakpointValue } from '@chakra-ui/react';
 import { useState } from 'react';
 import "./ProjectsList.css";
 import SliderBox from './Slider/SliderBox';
@@ -20,6 +20,7 @@ const ProjectsList = ({ projects }: Props) => {
     const [slideDirection, setSlideDirection] = useState("");
     const [disableButton, setDisableButton] = useState(false);
     const { colorMode } = useColorMode();
+    const showSideCards = useBreakpointValue({ base: false, xl: true }) ?? false;
 
     const animDuration = 620;
 
@@ -71,47 +72,62 @@ const ProjectsList = ({ projects }: Props) => {
     }
 
     return (
-        <HStack justifyContent={'space-between'}>
-            {/* left box */}
-            <SliderBox slideDirection={slideDirection} project={getPrevious()} orientation='left' />
+        <Flex direction={{ base: "column", xl: "row" }} align="center" justify="center" gap={{ base: 4, xl: 3 }} width="100%">
+            {showSideCards && (
+                <SliderBox slideDirection={slideDirection} project={getPrevious()} orientation='left' />
+            )}
 
-            <SliderButton action='sub' onClick={(action: "add" | "sub") => changeIndex(action)} disabled={disableButton} />
-
-            {/* middle selected box */}
-            <Box 
+            <Box
                 key={projects[index].name}
-                borderWidth="1px" 
-                borderRadius="lg" 
+                borderWidth="1px"
+                borderRadius="lg"
                 bgColor={colorMode === "light" ? "gray.300" : "gray.900"}
                 className={slideDirection}
                 onAnimationEnd={() => setSlideDirection("")}
-                width={"44vw"} 
-                height={"68vh"}
+                width={{ base: "100%", md: "min(92vw, 720px)", xl: "44vw" }}
+                maxW={{ base: "100%", md: "720px" }}
+                height={{ base: "auto", xl: "68vh" }}
                 marginX={"5px"}
                 zIndex={2}
                 onClick={() => {
                     window.open(projects[index].link, "_blank");
                 }}
-                _hover={{ 
-                    "transform": `${disableButton ? "scale(1.0)" : "scale(1.05)"}`,
+                _hover={{
+                    "transform": `${disableButton ? "scale(1.0)" : "scale(1.03)"}`,
                     "transition": "transform 0.5s ease-out",
                     "cursor": "pointer"
                 }}
-                sx={{ 
+                sx={{
                     "transition": "transform 1s ease-in-out"
                 }}>
-                <Image src={projects[index].image} alt={projects[index].name} width={'44vw'} height={'45vh'} />
-                <Box p={6}>
-                    <Heading fontSize="xl">{projects[index].name}</Heading>
-                    <Text mt={4}>{projects[index].description}</Text>
+                <Image
+                    src={projects[index].image}
+                    alt={projects[index].name}
+                    width={'100%'}
+                    height={{ base: '220px', md: '45vh' }}
+                    objectFit="cover" />
+                <Box p={{ base: 4, md: 6 }}>
+                    <Heading fontSize={{ base: "lg", md: "xl" }}>{projects[index].name}</Heading>
+                    <Text mt={4} fontSize={{ base: "sm", md: "md" }}>{projects[index].description}</Text>
                 </Box>
             </Box>
 
-            <SliderButton action='add' onClick={(action: "add" | "sub") => changeIndex(action)} disabled={disableButton} />
+            {showSideCards ? (
+                <>
+                    <SliderButton action='sub' onClick={(action: "add" | "sub") => changeIndex(action)} disabled={disableButton} />
+                    <SliderButton action='add' onClick={(action: "add" | "sub") => changeIndex(action)} disabled={disableButton} />
+                </>
+            ) : (
+                <Flex gap={3} mt={2}>
+                    <SliderButton action='sub' onClick={(action: "add" | "sub") => changeIndex(action)} disabled={disableButton} />
+                    <SliderButton action='add' onClick={(action: "add" | "sub") => changeIndex(action)} disabled={disableButton} />
+                </Flex>
+            )}
 
-            {/* right box */}
-            <SliderBox slideDirection={slideDirection} project={getNext()} orientation='right' />
-        </HStack>
+            {showSideCards && (
+                <SliderBox slideDirection={slideDirection} project={getNext()} orientation='right' />
+            )}
+        </Flex>
     );
 }
 
