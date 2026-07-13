@@ -19,7 +19,7 @@ const Techonologies = ({ language }: Props) => {
     );
 
     return (
-        <VStack marginBottom={{ base: "6rem", md: "10rem" }} width="100%" spacing={4}>
+        <VStack marginBottom={{ base: "6rem", md: "10rem" }} width="100%" spacing={4} align="stretch">
             <Box px={4} textAlign="center">
                 <Text 
                     fontSize={{ base: "34px", md: "50px" }}
@@ -41,14 +41,11 @@ const Techonologies = ({ language }: Props) => {
             </Box>
 
             <Box
-                width="100vw"
-                maxW="100vw"
+                width="100%"
                 minH={{ base: "340px", md: "400px" }}
                 rounded={0}
                 overflow="hidden"
-                position="relative"
-                ml="calc(50% - 50vw)"
-                mr="calc(50% - 50vw)">
+                position="relative">
                 <Parallax
                     bgImage={mushBG}
                     strength={300}

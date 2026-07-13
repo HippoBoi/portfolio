@@ -12,6 +12,8 @@ import terracalc from "./images/projects/terra-calc.webp"
 import hippomusic from "./images/projects/hippo-music.webp"
 import csvtojson from "./images/projects/csv-to-json.webp"
 import luisgg from "./images/projects/luisgg.webp"
+import chat from "./images/projects/chat.png"
+import landing from "./images/projects/rhay.webp"
 import socialred from "./images/projects/socialred.webp"
 import Experience from "./components/Experience";
 import BottomText from "./components/BottomText";
@@ -47,17 +49,29 @@ function HomePage() {
     }, []);
 
     const projects: ProjectTemplate[] = [
-        {name: "Hippo Music", 
-            description: `${language === "eng" ? 
-                "I developed this website to upload, share and store some my songs. Built with React and CSS." : 
-                "Desarrollé este sitio web para alojar y compartir algunas de mis canciones. Utilicé React y CSS."}`, 
-            image: hippomusic, link: "https://hippo-music.vercel.app"},
         {name: "Terra-Calc", 
             description: `${language === "eng" ?
                 "This project features a working calculator to gather information about the video-game Terraria. Built with React and Chakra UI." :
                 "Este proyecto presenta una calculadora para obtener información acerca del video-juego Terraria. Utilicé React y Chakra UI"
             }`, 
             image: terracalc, link: "https://terra-calc.vercel.app"},
+        {name: "Landing Random Fighters", 
+            description: `${language === "eng" ? 
+                "This project uses React to create a dynamic landing page that changes according to the character you select. It's a simple project to promote my game, try it! It's fun." :
+                "Este proyecto usa React para crear una landing page dinámica que cambia según el personaje que selecciones. Es un proyecto simple para promocionar mi juego, pruebala! Está divertida."
+            }`, 
+            image: landing, link: "https://random-fighters.vercel.app"},
+        {name: "Realtime Chat", 
+            description: `${language === "eng" ? 
+                "This project uses Socket.IO and PostgreSQL to create a simple real-time chat with other users. It assigns a random ID to each user and they can send videos or other links to the chat. Made with React and NodeJS." :
+                "Este proyecto usa Socket.IO y PostgreSQL para crear un simple chat en tiempo real con otros usuarios. Asigna un ID aleatorio a cada usuario y pueden enviar videos u otros enlaces al chat. Utilicé React y NodeJS."
+            }`, 
+            image: chat, link: "https://khn-chat.vercel.app"},
+        {name: "Hippo Music", 
+            description: `${language === "eng" ? 
+                "I developed this website to upload, share and store some my songs. Built with React and CSS." : 
+                "Desarrollé este sitio web para alojar y compartir algunas de mis canciones. Utilicé React y CSS."}`, 
+            image: hippomusic, link: "https://hippo-music.vercel.app"},
         {name: "Social Wire", 
             description: `${language === "eng" ? 
                 "This project features the layout of a social media application and functionality. Built with React, Chakra UI and Bootstrap." :

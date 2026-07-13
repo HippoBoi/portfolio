@@ -77,6 +77,10 @@ const ProjectsList = ({ projects }: Props) => {
                 <SliderBox slideDirection={slideDirection} project={getPrevious()} orientation='left' />
             )}
 
+            {showSideCards && (
+                <SliderButton action='sub' onClick={(action: "add" | "sub") => changeIndex(action)} disabled={disableButton} />
+            )}
+
             <Box
                 key={projects[index].name}
                 borderWidth="1px"
@@ -113,10 +117,7 @@ const ProjectsList = ({ projects }: Props) => {
             </Box>
 
             {showSideCards ? (
-                <>
-                    <SliderButton action='sub' onClick={(action: "add" | "sub") => changeIndex(action)} disabled={disableButton} />
-                    <SliderButton action='add' onClick={(action: "add" | "sub") => changeIndex(action)} disabled={disableButton} />
-                </>
+                <SliderButton action='add' onClick={(action: "add" | "sub") => changeIndex(action)} disabled={disableButton} />
             ) : (
                 <Flex gap={3} mt={2}>
                     <SliderButton action='sub' onClick={(action: "add" | "sub") => changeIndex(action)} disabled={disableButton} />
