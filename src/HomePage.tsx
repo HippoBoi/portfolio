@@ -100,22 +100,26 @@ function HomePage() {
     
     return (      
         <>  
-            <TopBG></TopBG>
-            
-            <Box bgGradient={bgGradient} position="relative" overflow="hidden">
+            <Box position="relative">
+                <TopBG />
                 <Flex
                     position="absolute"
-                    top={{ base: "1rem", md: "2rem" }}
-                    left={{ base: "1rem", md: "25vw" }}
+                    top={{ base: "1rem", md: "auto" }}
+                    bottom={{ base: "auto", md: "1rem" }}
+                    left={{ base: "1rem", md: "50%" }}
                     right={{ base: "1rem", md: "auto" }}
+                    transform={{ base: "none", md: "translateX(-50%)" }}
                     gap={3}
                     wrap="wrap"
-                    justify={{ base: "center", md: "flex-start" }}
+                    justify="center"
                     zIndex={2}>
                     <SwitchTheme language={language} colorMode={colorMode} toggleColorMode={toggleColorMode} />
                     <SwitchLanguage language={language} onClick={(lang: "eng" | "esp") => setLanguage(lang)} />
                 </Flex>
-                <Box pt={{ base: "6.5rem", md: "5rem" }} pb={{ base: "2rem", md: "0" }}>
+            </Box>
+
+            <Box bgGradient={bgGradient} position="relative" overflow="hidden">
+                <Box pt={{ base: "6.5rem", md: "0" }} pb={{ base: "2rem", md: "0" }}>
                     <NameCard language={language} />
                 </Box>
             </Box>
